@@ -1,4 +1,4 @@
-# PHPStorm Live Templates for Drupal 7
+# PHPStorm Live Templates for Drupal 7 and Drupal 8
 
 ## What ? Why ?
 
@@ -11,23 +11,39 @@ for Drupal hooks. It was generated using a Perl script that basically create
 PHPStorm Live Templates from *.api.php files in Drupal /includes and /modules
 directories. The output is a bit raw, so it needs some love and polish.
 
-## How to use the script generator
+## Quick and easy install
 
-You need Perl in your machine. This script was written under Debian Linux, so
-it may need some adaptations for others OS's.
+1. Download and copy the *xml* file(s) from this repo to your templates folder:
+
+* Windows: `<your home directory>\.<product name><version number>\config\templates`
+* Linux: `~\.<product name><version number>\config\templates`
+* OS X: `~/Library/Preferences/<product name><version number>/templates`
+
+e.g. `~/Library/Preferences/PhpStorm2016.2/templates` on OS X for PhpStorm 2016
+
+2. Restart PhpStorm.
+
+3. To see all templates, go to *Preferences->Live Templates* and expand the Template Group.
+
+## How to use
+
+While editing, use `CMD + J` (osX) or `CTRL + J` to start inserting a live template. 
+Type `h_HOOKNAME<tab>` for short version, `hook_HOOKNAME<tab>` for annoted version (with core comments).
+
+The hook should be completed as you would see in the api docs.
+
+
+## How to use the script generator (optional)
+
+The script generator allows you to create live templates by scanning the `.api.php` files that exist in your drupal project. It looks for functions starting with `function hook_` and uses that to build the live templates. 
+
+You need Perl in your machine. This script was written under Debian Linux, so it may need some adaptations for others OS's.
 
 Type these commands :
 
     $ cd /path/to/drupal  
     $ find . -name \*.php | xargs grep -l '^function hook_' | xargs /path/to/parse_drupal_api.pl > ~/.WebIde10/config/templates/user.xml
 
-## How to use the Live Templates
-
-1. (optional) For security's sake, back up your original user.xml file if it exists.
-2. Copy the user.xml file into ~/.WebIde10/config/templates  
-3. Restart PHPStorm.
-4. Type `h_HOOKNAME<tab>` for short version, `hook_HOOKNAME<tab>` for annoted version (with core comments)
-5. Profit !
 
 ## License
 
@@ -50,3 +66,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Props to Jeremie Le Hen who wrote the Perl script that generated the templates.  
 Special thanks to [blup](https://github.com/blup/snippets) for the original idea and work (VIM snippets for Drupal)
+
+Drupal 8 templates added by Jeremy Graham
